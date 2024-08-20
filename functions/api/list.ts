@@ -18,8 +18,8 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         MaxKeys: maxKeys ? parseInt(maxKeys) : undefined,
         Prefix: prefix,
         ContinuationToken: continuationToken
-        console.log(BUCKET!);
     });
+    console.log(env.BUCKET);
     let response;
     try {
         response = await s3.send(command);
