@@ -19,7 +19,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         Prefix: prefix,
         ContinuationToken: continuationToken
     });
-    console.log(env.BUCKET);
     let response;
     try {
         response = await s3.send(command);
