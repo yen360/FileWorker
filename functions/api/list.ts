@@ -18,11 +18,13 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         MaxKeys: maxKeys ? parseInt(maxKeys) : undefined,
         Prefix: prefix,
         ContinuationToken: continuationToken
+        console.log(BUCKET!);
     });
     let response;
     try {
         response = await s3.send(command);
     } catch (e) {
+        console.error(e);
         return new Response("Not found", { status: 404 });
     }
     return new Response(JSON.stringify(response), { status: 200 });
